@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/profiledefault" />
 
     <TextView
-        android:id="@+id/textUserName"
+        android:id="@+id/textNavHeaderUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,13 +34,13 @@
         tools:text="Android Studio" />
 
     <TextView
-        android:id="@+id/textUserEmail"
+        android:id="@+id/textNavHeaderUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="email@email.com"
         app:layout_constraintStart_toEndOf="@+id/imageUserNavHeader"
-        app:layout_constraintTop_toBottomOf="@+id/textUserName"
+        app:layout_constraintTop_toBottomOf="@+id/textNavHeaderUserName"
         tools:text="email@email.com" />
 
     <Button
@@ -50,6 +50,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
+        android:onClick="onLoginButtonClick"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageUserNavHeader"
@@ -63,6 +64,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
+        android:onClick="onAddChannelButtonClick"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageCellUserAvatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profiledefault" />
+
+    <TextView
+        android:id="@+id/textCellUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/imageCellUserAvatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Edward" />
+
+    <TextView
+        android:id="@+id/textCellTimeStamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textCellUserName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mar11, 10:30 PM" />
+
+    <TextView
+        android:id="@+id/textCellMessageBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageCellUserAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/textCellTimeStamp"
+        tools:text="Lorem ipsum dolor sit amet nunc tortor hendrerit tellus orci imperdiet sed conubia in gravida molestie fringilla nibh amet lacinia tortor luctus sociosqu est malesuada dolor tincidunt neque ad porta pulvinar id odio ultrices interdum feugiat lobortis lorem nostra efficitur tristique semper fringilla varius quam sit etiam inceptos enim lectus" />
+</android.support.constraint.ConstraintLayout>
