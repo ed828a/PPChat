@@ -67,8 +67,8 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
 
         socket.connect()
-        socket.on("channelCreated", onNewChannel)
-        socket.on("messageCreated", onNewMessage)
+        socket.on(getString(R.string.channel_created), onNewChannel)
+        socket.on(getString(R.string.message_created), onNewMessage)
 
         with(UserProfile) {
             isLoggedIn = App.sharedPrefs.isLoggedIn
@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                 imageUserNavHeader.setImageResource(resourceId)
                 imageUserNavHeader.setBackgroundColor(UserProfile.returnAvatarColor(UserProfile.avatarColor))
 
-                buttonLogin.text = "Logout"
+                buttonLogin.text = getString(R.string.logout)
 
                 if (context != null) {
                     MessageService.getChannels { complete ->
@@ -147,7 +147,7 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
         selectedChannel = savedInstanceState?.getParcelable(SELECTED_CHANNEL)
-        println("onRestoreInstanceState: selectChannel = $selectedChannel")
+        Log.d(CHECK_TAG,"onRestoreInstanceState: selectChannel = $selectedChannel")
     }
 
     override fun onStop() {
@@ -175,7 +175,7 @@ class MainActivity : AppCompatActivity() {
                         recyclerMessageList.smoothScrollToPosition(recyclerMessageList.adapter.itemCount - 1)
                     }
                 } else {
-                    Toast.makeText(this, "Something went to Wrong, please try again!",
+                    Toast.makeText(this, getString(R.string.something_wrong),
                             Toast.LENGTH_SHORT).show()
                 }
             }
@@ -204,17 +204,17 @@ class MainActivity : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(this)
             val dialogView = layoutInflater.inflate(R.layout.add_channel_dialog, null)
             dialogBuilder.setView(dialogView)
-                    .setPositiveButton("Add") { dialog, which ->
+                    .setPositiveButton(getString(R.string.add)) { dialog, which ->
                         // store channel name and description
                         val channelName = dialogView.textDialogChannelName.text.toString()
                         val channelDescription = dialogView.textDialogChannelDescription.text.toString()
                         if (channelName.isNotEmpty() && channelDescription.isNotEmpty()) {
-                            socket.emit("newChannel", channelName, channelDescription)
+                            socket.emit(getString(R.string.new_channel), channelName, channelDescription)
                         } else {
-                            Toast.makeText(this, "Please fill out Channel Name and Channel Description Both!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.need_channel_name), Toast.LENGTH_SHORT).show()
                         }
                     }
-                    .setNegativeButton("Cancel") { dialog, which ->
+                    .setNegativeButton(getString(R.string.cancel)) { dialog, which ->
                         // nothing to do
                     }
                     .show()
@@ -225,7 +225,7 @@ class MainActivity : AppCompatActivity() {
         if (UserProfile.isLoggedIn && textMessageEditField.text.isNotEmpty() && selectedChannel != null) {
             val userId = UserProfile.userId
             val channelId = selectedChannel!!.id
-            socket.emit("newMessage", textMessageEditField.text.toString(),
+            socket.emit(getString(R.string.new_message), textMessageEditField.text.toString(),
                     userId, channelId, UserProfile.userName, UserProfile.avatarName,
                     UserProfile.avatarColor)
 
@@ -242,7 +242,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-        buttonLogin.text = "Login"
+        buttonLogin.text = getString(R.string.login)
 
         with(App.sharedPrefs) {
             isLoggedIn = false
@@ -257,7 +257,7 @@ class MainActivity : AppCompatActivity() {
             userEmail = ""
             userPassword = ""
             avatarName = ""
-            avatarColor = "[1, 1, 1, 1]"
+            avatarColor = getString(R.string.default_color)
             userId = ""
             authToken = ""
             isLoggedIn = false
@@ -266,7 +266,7 @@ class MainActivity : AppCompatActivity() {
         imageUserNavHeader.setBackgroundColor(Color.TRANSPARENT)
         textNavHeaderUserEmail.text = ""
         textNavHeaderUserName.text = ""
-        textChannelName.text = "Please Log In"
+        textChannelName.text = getString(R.string.please_login)
 
         MessageService.clearChannelsAndMessages()
         listViewAdaper.notifyDataSetChanged()

@@ -10,6 +10,7 @@ import com.dew.edward.ppchat.Model.Message
 import com.dew.edward.ppchat.Model.UserProfile
 import com.dew.edward.ppchat.R
 import com.dew.edward.ppchat.Utilities.CHECK_TAG
+import com.dew.edward.ppchat.Utilities.PARSE_TAG
 import kotlinx.android.synthetic.main.message_cell_view.view.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -62,7 +63,7 @@ class MessageRecyclerViewAdapter (val context: Context, val messages: ArrayList<
         try {
             convertedDate = formatterIn.parse(timeStamp)
         } catch (e: ParseException){
-            Log.d("PARSE", "can't parse date: ${e.localizedMessage}")
+            Log.d(PARSE_TAG, "can't parse date: ${e.localizedMessage}")
             e.printStackTrace()
         }
 

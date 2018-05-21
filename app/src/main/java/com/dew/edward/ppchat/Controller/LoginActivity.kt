@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         } else {
             enableSpinner(false)
             Toast.makeText(this,
-                    "Make sure user email and password are filled in.",
+                    getString(R.string.need_email_password),
                     Toast.LENGTH_SHORT).show()
         }
     }
@@ -78,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
     private fun errorToast(){
         enableSpinner(false)
         Toast.makeText(this,
-                "Something went wrong, please try again.", Toast.LENGTH_SHORT).show()
+                getString(R.string.something_wrong), Toast.LENGTH_SHORT).show()
     }
 
     fun onRegisterButtonClick(view: View){

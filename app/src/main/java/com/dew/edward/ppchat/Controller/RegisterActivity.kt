@@ -15,8 +15,8 @@ import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    var userAvatar = "profiledefault"
-    var avatarColor = "[1, 1, 1, 1]" // sets the color to white, and a transparency level of 100%
+    var userAvatar = getString(R.string.profile_default)
+    var avatarColor = getString(R.string.default_color) // sets the color to white, and a transparency level of 100%
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,7 +92,7 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             enableSpinner(false)
             Toast.makeText(this,
-                    "Make sure user name, email and password are filled in.",
+                    getString(R.string.need_name_email_password),
                     Toast.LENGTH_SHORT).show()
         }
     }
@@ -111,6 +111,6 @@ class RegisterActivity : AppCompatActivity() {
     private fun errorToast(){
         enableSpinner(false)
         Toast.makeText(this,
-                "Something went wrong, please try again.", Toast.LENGTH_SHORT).show()
+                getString(R.string.something_wrong), Toast.LENGTH_SHORT).show()
     }
 }
