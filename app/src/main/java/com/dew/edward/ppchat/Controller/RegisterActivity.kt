@@ -15,8 +15,8 @@ import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    var userAvatar = getString(R.string.profile_default)
-    var avatarColor = getString(R.string.default_color) // sets the color to white, and a transparency level of 100%
+    var userAvatar = "profiledefault"
+    var avatarColor = "[1, 1, 1, 1]"// sets the color to white, and a transparency level of 100%
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
