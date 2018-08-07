@@ -2,11 +2,10 @@ package com.dew.edward.ppchat.Controller
 
 import android.content.Intent
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
-import com.dew.edward.ppchat.Model.UserProfile
 import com.dew.edward.ppchat.R
 import com.dew.edward.ppchat.Services.AuthService
 import com.dew.edward.ppchat.Utilities.BROADCAST_USER_DATA_CHANGED
